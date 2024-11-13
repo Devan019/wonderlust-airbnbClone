@@ -1,0 +1,54 @@
+.filters {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+   z-index: 10;
+    
+}
+
+.filters .part1 {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-left: 2vw;
+    flex-wrap: wrap;
+}
+
+.filters .part1 div {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters .part1 div p {
+    font-size: smaller;
+}
+
+.filters .part1 a {
+    text-decoration: none;
+    color: #111;
+}
+
+.filters .part1 div i,
+.filters .part1 div img {
+    display: inline-block;
+    opacity: 0.8;
+    font-size: larger;
+}
+
+.filters .part1 div i:hover,
+.filters .part1 div img:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.filters .part2{
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #faf5f5a3;
+}

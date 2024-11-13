@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* body {
+    background: white;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+} */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* section {
+    flex: 1;
+} */
+
+#for-index {
+    padding: 20px;
+    text-align: center;
+}
+
+.listing li {
+    padding: 10px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 0;
+}
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 300px;
+    height: 350px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+
+.card .img-part {
+    width: 100%;
+    height: 200px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card img:hover {
+    opacity: 0.7;
+}
+
+.cards a {
+    text-decoration: none;
+    color: #111;
+}
+
+.text {
+    padding: 10px;
+    font-size: medium;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#list {
+    text-align: center;
+    color: red;
+    padding: 10px;
+}
+
+#spdec input {
+    height: 10vh;
+}
+
+#p-l {
+    display: flex;
+    gap: 33%;
+}
+
+#p-l input {
+    width: 100%;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#newform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    justify-content: center;
+
+}
+
+#newform .fields {
+    position: relative;
+    left: 20%;
+    /* transform: translate(-50%); */
+}
+
+.fields input {
+    width: 60%;
+    padding: 5px;
+}
+
+#newform button {
+    padding: 10px;
+    width: 8%;
+    background: red;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    left: 20%;
+}
+
+
+
+
+@media (max-width : 700px) {
+    .card {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

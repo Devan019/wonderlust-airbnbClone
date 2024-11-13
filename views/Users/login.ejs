@@ -1,0 +1,37 @@
+<%- layout('/layouts/boilerPlate.ejs') %>
+    <style>
+        .login-head {
+            text-align: center;
+        }
+
+        .login-form-div {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .login-form input {
+            width: 40vw;
+        }
+    </style>
+
+    <div class="login-form-div">
+        <form action="/login" method="post" class="login-form needs-validation" novalidate>
+            <h1 class="login-head">Login</h1>
+            <div class="mb-3">
+                <label for="username" class="form-label">username</label>
+                <input name="username" type="text" id="username" class="form-control" placeholder="Username"
+                    aria-label="Username" aria-describedby="basic-addon1" required>
+            </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="pass" required>
+            </div>
+            <p>if you don't have account <a href="./signup">Sign up</a> </p>
+            <button class="btn btn-success login-btn" type="submit">Login</button>
+            <h2>Continue with</h2>
+                <a href="/auth/google"><img src="/images/google.svg" alt="google-icon" width="20" height="20"></a>
+                <a href="/auth/github"><img src="/images/github.svg" alt="github-icon" width="20" height="20"></a>
+        </form>
+    </div>

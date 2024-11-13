@@ -1,0 +1,71 @@
+<style>
+  .navbar-brand {
+    color: red;
+  }
+  .searchSec input{
+    width: 15vw !important;
+  } 
+  .seabtn{
+    width: 40px;
+  }
+</style>
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div>
+      <a class="navbar-brand" href="/listings"><img
+          src="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico"
+          alt="logo">Airbnb</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+    </div>
+    <div class="collapse searchSec navbar-collapse" id="navbarNav"> 
+      
+      <div class="d-flex ms-auto" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search by country" aria-label="coutrySearch">
+
+        <input class="form-control me-2" type="search" placeholder="Search by city" aria-label="citySearch">
+
+        <input class="form-control me-2" type="search" placeholder="Search by listing name" aria-label="listSearch">
+
+        <button class="btn seabtn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <ul class="navbar-nav ms-auto jivan">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        </li>
+        <% if(!currUser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <% }else if(currUser) { %>
+            <div class="btn-group dropstart">
+              
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Profile
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">
+                    <%=currUser.username%>
+                  </a></li>
+                <li><a class="dropdown-item" href="/logout" onclick="return  confirm('confirm to logout')">logout</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/listings/my">Your listings</a>
+                </li>
+              </ul>
+            </div>
+            <%}%>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

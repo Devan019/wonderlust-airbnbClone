@@ -1,0 +1,96 @@
+<% layout('/layouts/boilerPlate') %>
+
+    <style>
+
+        .con {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .main-category {
+            display: flex  !important;
+            flex-wrap: wrap  !important;
+            width: 40vw  !important;
+        }
+
+        .main-category div {
+            display: flex ;
+            /* flex-wrap: wrap; */
+            padding: 10px;
+            gap: 5px;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+
+
+    <div class="con">
+        <h2>Update</h2>
+        <form action="/listings/<%=list._id%>/edit" method="post" enctype="multipart/form-data">
+
+            <div class="mb-3">
+
+                <label class="form-label" for="title">Title - </label>
+                <input name="title" class="form-control" type="text" value="<%=list.title%>" id="title">
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Orignal image - </label><br>
+                <img src="<%= newUrl %>" alt="orignal-image">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="desc">Description - </label>
+                <input name="description" class="form-control" type="text" value="<%=list.description%>" id="desc">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="img_upload">Image Upload - </label>
+                <input name="image_upload" type="file" class="form-control" id="img_upload">
+            </div>
+
+            <div class="mb-3  category">
+                <div>
+                    Category
+                </div>
+                <div class="main-category">
+                   <%-include('../includes/category.ejs')%>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="price">Price - </label>
+                <input name="price" type="number" class="form-control" min="0" value="<%=list.price%>" id="price">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Location - </label>
+                <input name="location" type="text" class="form-control" value="<%=list.location%>" id="location">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="country">Country - </label>
+                <input name="country" type="text" class="form-control" value="<%=list.country%>" id="country">
+            </div>
+
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+
+    <script>
+        let categoy = "<%=list.category%>"
+        let arr = categoy.split(",")
+        const category = document.querySelector(".main-category");
+        const allInputs = category.querySelectorAll("input");
+
+        allInputs.forEach((input)=>{
+            for(let cat of arr){
+                if(cat == input.value){
+                    input.setAttribute("checked" , "");
+                }
+            }
+        })
+    </script>

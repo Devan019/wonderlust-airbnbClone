@@ -1,0 +1,75 @@
+<% layout('/layouts/boilerPlate') %>
+    <link rel="stylesheet" href="/styles/show.css">
+    <div class="con">
+        <div class="card" style="width: 28rem;">
+            <h2>
+                <%=list.title%>
+            </h2>
+            <img src="<%=list.image.url%>" class="card-img-top" alt="...">
+            <div class="card-body card-new-body">
+                <p class="card-text">
+                    <%=list.description%>
+                </p>
+
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                   owned by <span><i><%=list.owner.username%></i></span>
+                </li>
+                <li class="list-group-item">&#x20B9 <%=list.price.toLocaleString("en-IN")%></li>
+                <li class="list-group-item">
+                    <%=list.location%>
+                </li>
+                <li class="list-group-item">
+                    <%=list.country%>
+                </li>
+            </ul>
+
+            <% if (userId && userId==list.owner._id){ %>
+
+                <div class="card-new-body">
+                    <form action="/listings/<%=list._id%>?_method=PATCH" method="post">
+                        <button id="spbutton" type="submit">Edit</button>
+                    </form>
+                    <form action="/listings/<%=list._id%>?_method=DELETE" method="post">
+                        <button id="spbutton" onclick="return confirm('confrom to delete this list')"
+                            type="submit">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+    <hr>
+
+    <%- include('../Reviews/form.ejs') %>
+
+        <h2 class="com-head"> Comments</h2>
+        <div class="comment-section">
+            <% for( let comment of list.reviews ) { %>
+
+                <div class="card newcard">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= comment.owner.username %>
+                        </h5>
+                        <p class="card-text">
+                            <%= comment.comment %>
+                        </p>
+                        <p class="starability-result" data-rating="<%=comment.rating %>">
+                            
+                        </p>
+                    </div>
+                    <% if(userId && userId==comment.owner._id) { %>
+                        <form action="/listings/<%=list._id%>/reviews/<%=comment._id%>?_method=DELETE" method="post">'
+                            <button class="btn btn-dark" type="submit"
+                                onclick="return confirm('do you want delete review')">Delete</button>
+                        </form>
+                        <%}%>
+                </div>
+
+
+                <% } %>
+        </div>
+
+    <%- include('../includes/map.ejs') %>

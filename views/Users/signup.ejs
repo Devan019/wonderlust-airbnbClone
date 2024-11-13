@@ -1,0 +1,42 @@
+<%- layout('/layouts/boilerPlate.ejs') %>
+<style>
+    .signup-head{
+        text-align: center;
+    }
+    .signup-form-div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .signup-form input{
+        width: 40vw;
+    }
+   
+    
+
+</style>
+
+    <div class="signup-form-div">
+        <form action="/signup" method="post" class="signup-form needs-validation" novalidate>
+            <h1 class="signup-head">Signup</h1>
+            <div class="mb-3">
+                <label for="username" class="form-label">username</label>
+                <input name="username" type="text" id="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="pass" required>
+            </div>
+            <p>if you already have account <a href="./login">Login</a> </p>
+            <button class="btn btn-success signup-btn" type="submit">Sign up</button>
+
+            <h2>Continue with</h2>
+            <a href="/auth/google"><img src="/images/google.svg" alt="google-icon" width="20" height="20"></a>
+            <a href="/auth/github"><img src="/images/github.svg" alt="github-icon" width="20" height="20"></a>  
+        </form>
+    </div>

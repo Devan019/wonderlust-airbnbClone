@@ -1,0 +1,55 @@
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+
+<style>
+    #map{
+        width: 80vw;
+        
+        height: 50vh;
+    }
+    h1{
+        text-align: center;
+    }
+    .map{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+
+<div class="mb-3">
+    <h1>Where you'll be</h1>
+    <div class="map">
+        <div id="map"></div>
+    </div>
+</div>
+
+<script>
+    
+    const token  = "<%=process.env.MAP_TOKEN%>";
+    const x = parseFloat("<%=list.geometry.coordinates[0] %>")
+    const y = parseFloat("<%=list.geometry.coordinates[1]%>")
+	// console.log(token)
+    mapboxgl.accessToken = token;
+    // console.log(mapboxgl.accessToken)
+    console.log(x , y);
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [x,y], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom:9// starting zoom
+    });
+    const popup = new mapboxgl.Popup().setHTML(`
+    <h4>${"<%=list.title%>"}</h4><br><p>Exact Lovation will be provided after booking</p>
+    `)
+
+    const marker = new mapboxgl.Marker({
+        color : 'blue'
+    })
+    .setLngLat([x, y])
+    .addTo(map)
+    .setPopup(popup)
+
+
+</script>

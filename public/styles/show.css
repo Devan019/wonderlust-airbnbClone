@@ -1,0 +1,108 @@
+.con {
+    display: flex;
+    justify-content: center;
+}
+
+.card-new-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+#spbutton {
+    background: crimson;
+    border-radius: 10px;
+    padding: 10px;
+    color: wheat;
+}
+
+#spbutton button:hover {
+    background: red;
+}
+
+h2 {
+    padding: 20px;
+}
+
+/* Heading for the comment section */
+.com-head {
+    text-align: center;
+    color: #ff5a5f;
+    /* Use Airbnb’s iconic color */
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Comment section container */
+.comment-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Styling individual comment cards */
+.card.newcard {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    /* Control the width of each card */
+    transition: transform 0.3s;
+}
+
+.card.newcard:hover {
+    transform: translateY(-10px);
+    /* Adds a nice hover effect */
+}
+
+/* Card content */
+.card-body {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Reviewer name */
+.card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Comment text */
+.card-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Rating stars */
+.card h4 {
+    font-size: 1.4rem;
+    color: #ff5a5f;
+    /* Match with Airbnb's branding */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Styling stars */
+.card h4 span {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .card.newcard {
+        width: 100%;
+    }
+
+    .comment-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

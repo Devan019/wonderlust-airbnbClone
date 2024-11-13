@@ -1,0 +1,72 @@
+<% layout('/layouts/boilerPlate') %>
+    <link rel="stylesheet" href="/styles/newList.css">
+    <link rel="stylesheet" href="/styles/multiSelect.css">
+    <div class="new-form">
+        <h2 id="list">New List</h2>
+        <form action="/listings" method="post" id="newform" class="needs-validation" novalidate
+            enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control input" type="text" name="title" id="title" placeholder="enter title" required>
+                <div class="invalid-feedback">
+                    please enter valid title
+                </div>
+            </div>
+            <div id="spdec" class="mb-3">
+                <label class="form-label" for="dec">Description</label>
+                <input class="form-control input" type="text" name="description" id="des" placeholder="enter description"
+                    required>
+                <div class="invalid-feedback">
+                    please enter valid description
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image url/link</label>
+                <input class="form-control input" type="url" name="image" id="image" placeholder="enter image url/link">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image-upload">Image Upload</label>
+                <input class="form-control" type="file" name="upload" id="image-upload"
+                    placeholder="enter image url/link">
+            </div>
+            <div id="p-l">
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input class="form-control" type="text" name="price" id="price" placeholder="enter price" required>
+                    <div class="invalid-feedback">
+                        please enter valid price
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" placeholder="enter location"
+                        required>
+                    <div class="invalid-feedback">
+                        please enter valid location
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="country">Country</label>
+                <input class="form-control" type="text" name="country" id="country" placeholder="enter country"
+                    required>
+                <div class="invalid-feedback">
+                    please enter valid country
+                </div>
+            </div>
+
+            <div class="mb-3  category ">
+                <div>
+                    Category
+                </div>
+                <div class="main-category">
+                    <%-include('../includes/category.ejs')%>
+                 </div>
+            </div>
+
+            <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="/scripts/multiSelect.js"></script>
