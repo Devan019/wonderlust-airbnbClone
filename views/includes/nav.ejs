@@ -24,11 +24,11 @@
     <div class="collapse searchSec navbar-collapse" id="navbarNav"> 
       
       <div class="d-flex ms-auto" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search by country" aria-label="coutrySearch">
+        <input class="form-control me-2 coutrySearch" type="search" placeholder="Search by country" aria-label="coutrySearch">
 
-        <input class="form-control me-2" type="search" placeholder="Search by city" aria-label="citySearch">
+        <input class="form-control me-2 citySearch" type="search" placeholder="Search by city" aria-label="citySearch">
 
-        <input class="form-control me-2" type="search" placeholder="Search by listing name" aria-label="listSearch">
+        <input class="form-control me-2 listSearch" type="search" placeholder="Search by listing name" aria-label="listSearch">
 
         <button class="btn seabtn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
@@ -44,7 +44,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <% }else if(currUser) { %>
+          <% }else { %>
             <div class="btn-group dropstart">
               
               <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"

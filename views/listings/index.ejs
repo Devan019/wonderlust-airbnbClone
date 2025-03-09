@@ -31,4 +31,23 @@
 
         </div>
 
+
+        <!-- for search -->
+         <script>
+            console.log("i script")
+                const allCards = document.querySelector(".cards");
+
+                const listSearch = document.querySelector(".listSearch");
+
+                console.log(allCards , listSearch)
+
+                listSearch.addEventListener("input" , (evt)=>{
+                    let val = evt.target.value;
+                    allCards.forEach((card)=>{
+                      console.log(card.innerText)
+                    })
+                })
+
+         </script>
+
         <script src="/scripts/filter.js"></script>
